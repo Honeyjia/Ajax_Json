@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get请求</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        function fun() {
+          /*  $.post()：发送post请求
+            * 语法：$.get(url, [data], [callback], [type])
+            * 参数：
+        * url：请求路径
+            * data：请求参数
+            * callback：回调函数
+            * type：响应结果的类型*/
+            $.post("ajaxServlet",{name:"Tom"},function (data) {
+                alert(data);
+            },"text");
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun();">
+<input>
+</body>
+</html>

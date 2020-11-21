@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据语法遍历</title>
+</head>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    var person = {"name":"张三","age":23,"gender":true};
+    //遍历person中所有键值对  for  in循环
+    /*for(var key in person){
+        alert(key+":"+person[key]);
+    }*/
+    var ps = [
+        {"name":"张三","age":23,"gender":true},
+        {"name":"李四","age":24,"gender":true},
+        {"name":"王五","age":25,"gender":false}
+    ]
+    //获取ps中的所有值
+    for(var i = 0; i < ps.length; i ++){
+        var p = ps[i];
+        for(var key in p){
+            alert(key+":"+p[key]);
+        }
+    }
+</script>
+<body>
+
+</body>
+</html>

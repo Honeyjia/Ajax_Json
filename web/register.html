@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册页面</title>
+</head>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    // 在页面加载后完成
+    $(function () {
+        // 给usename绑定失去焦点事件
+        $("#username").blur(function () {
+            // 获取username文本框的输入值
+            var name = $(this).val();
+            // 发送ajx请求
+            // 期望服务器响应的数据格式：{"userExist":true,"msg":"此用户名太受欢迎，请更换一个!"}
+            // {"userExist":false,"msg":"用户名可用"}
+            $.get("findUserServlet",{username:name},function (data) {
+                var span = $("#s_username");
+                if(data.userExist){
+                    //如果该用户名存在
+                    span.css("color","red");
+                    span.html(data.msg);
+                }else {
+                    //该用户名不存在
+                    span.css("color","green");
+                    span.html(data.msg);
+                }
+            },"json")
+
+        })
+    })
+</script>
+<body>
+<form>
+    <input type="text" name="username" id="username" placeholder="请输入用户名">
+    <span id="s_username"></span><br>
+    <input type="password" name="password" placeholder="请输入密码"><br>
+    <input type="submit" value="登录">
+</form>
+
+</body>
+</html>

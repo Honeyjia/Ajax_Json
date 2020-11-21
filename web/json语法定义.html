@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json语法定义</title>
+</head>
+<script>
+    // 1.基本定义
+    var person = {"name":"张三","age":23,"gender":true};
+    // alert(person);
+    // 获取 张三 值
+    // alert(person.name);
+    // alert(person["name"]);
+
+    // 2.嵌套格式 {} ----> []
+  /*  var ps = {
+        "name":[
+            {"name":"张三","age":23,"gender":true},
+            {"name":"李四","age":24,"gender":true},
+            {"name":"王五","age":25,"gender":false}
+        ]
+    };*/
+    // alert(ps);
+    // 获取王五值
+    // alert(ps.name[2].name);
+
+    // 2.嵌套格式 [] ----> {}
+    var ps = [
+            {"name":"张三","age":23,"gender":true},
+            {"name":"李四","age":24,"gender":true},
+            {"name":"王五","age":25,"gender":false}
+    ]
+    // 获取 李四 值
+    alert(ps[1].name);
+</script>
+<body>
+
+</body>
+</html>
